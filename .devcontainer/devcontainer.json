@@ -1,0 +1,16 @@
+{
+  "name": "echo-server",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "customizations": {
+    "jetbrains": {
+      "backend": "GoLand"
+    }
+  },
+  "forwardPorts": [
+    8080
+  ],
+}

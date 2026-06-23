@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/your-org/echo-server
+  repository: ghcr.io/rakorth/echo-server
   pullPolicy: IfNotPresent
   tag: ""
 
@@ -52,6 +52,11 @@ securityContext:
   runAsNonRoot: true
   runAsUser: 65532
   readOnlyRootFilesystem: true
+
+referenceGrant:
+  enabled: false
+  name: echo-from-gateway
+  fromNamespace: default
 
 nodeSelector: {}
 tolerations: []

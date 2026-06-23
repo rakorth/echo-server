@@ -1,0 +1,15 @@
+{{- if .Values.referenceGrant.enabled }}
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: ReferenceGrant
+metadata:
+  name: {{ .Values.referenceGrant.name | default "echo-from-gateway" }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  from:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: {{ .Values.referenceGrant.fromNamespace | default "default" }}
+  to:
+    - group: ""
+      kind: Service
+{{- end }}
